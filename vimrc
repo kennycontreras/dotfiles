@@ -3,16 +3,12 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Plugins begins
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
 Plugin 'tmhedberg/SimpylFold'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
@@ -24,11 +20,11 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
-" ...
-
-" All of your Plugins must be added before the following line
+" Plugins ends
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 
 " Split windows
@@ -40,14 +36,17 @@ set nu
 
 " System Clipboard
 set clipboard=unnamed
+set clipboard=unnamedplus
 
 
-"split navigations & maps
+" MAPS
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 map <C-n> :NERDTreeToggle<CR>
+cnoremap kj <C-C>
+cnoremap jk <C-C>
 
 " Enable folding
 set foldmethod=indent
@@ -99,15 +98,11 @@ EOF
 
 
 " Color Scheme Configuration
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
+syntax on
+colorscheme atom-dark-256
 
 " Switch between dark and light theme (Solarized)
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 
 " Ignore .pyc files
@@ -115,4 +110,11 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Statusline always show
 set laststatus=2
+
+" Relative numbers
+set relativenumber
+
+" Backspace configuration
+set backspace=indent,eol,start
+set ruler
 
