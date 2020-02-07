@@ -4,23 +4,21 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-
 " Plugins begins
+call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
+Plugin 'arcticicestudio/nord-vim'
 
 " Plugins ends
 call vundle#end()            " required
@@ -36,7 +34,6 @@ set nu
 
 " System Clipboard
 set clipboard=unnamed
-set clipboard=unnamedplus
 
 
 " MAPS
@@ -45,8 +42,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 map <C-n> :NERDTreeToggle<CR>
+inoremap kj <esc>
+inoremap jk <esc>
 cnoremap kj <C-C>
-cnoremap jk <C-C>
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 
 " Enable folding
 set foldmethod=indent
@@ -99,7 +98,7 @@ EOF
 
 " Color Scheme Configuration
 syntax on
-colorscheme atom-dark-256
+colorscheme nord
 
 " Switch between dark and light theme (Solarized)
 " call togglebg#map("<F5>")
